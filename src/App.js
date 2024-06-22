@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./asstes/imgs/logo.svg";
+import cassanic from "./asstes/imgs/cassanic.svg";
+import Winers from './components/Winers';
+import Faq from './components/Faq';
+import Form from './components/Form';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <img src={cassanic} className="cassanic" alt="cassanic" />
+      <div className="resgatar-bonus">
+        <div>
+          <h2>RECEBA JA $600 EM BONUS + 200 GIROS</h2>
+          <h2>GRATIS !</h2>
+        </div>
+        <button className="resgatar-bonus-btn">RESGATAR BONUS</button>
+      </div>
+      <Faq/>
+      <Winers/>
+      <Form />
     </div>
   );
 }
