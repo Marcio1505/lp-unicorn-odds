@@ -1,0 +1,26 @@
+*,
+body,
+button,
+footer {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+
+@media (max-width:440px) {
+        body {
+            display: flex;
+            background-image: url('./asstes/imgs/cassanic.svg');
+            background-size: cover ;
+            background-repeat: no-repeat;
+            max-width: 440px;
+          };
+          header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+}

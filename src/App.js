@@ -4,14 +4,13 @@ import Winers from './components/Winers';
 import Faq from './components/Faq';
 import Form from './components/Form';
 
-
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
-      <img src={cassanic} className="cassanic" alt="cassanic" />
+      {/* <div className="cassanic"><img src={cassanic} className="cassanic" alt="cassanic" /></div> */}
       <div className="resgatar-bonus">
         <div>
           <h2>RECEBA JA $600 EM BONUS + 200 GIROS</h2>
