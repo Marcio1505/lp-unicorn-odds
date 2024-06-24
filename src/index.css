@@ -7,20 +7,112 @@ footer {
     list-style: none;
     vertical-align: baseline;
     text-decoration: none;
+    border: none;
 }
 
-@media (max-width:440px) {
+@font-face {
+  font-family: 'Montserrat';
+  src: url(./asstes/fonts/Montserrat-variable.ttf);
+  font-style: normal
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.8rem;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-image: url('./asstes/imgs/slot-machine.svg'), linear-gradient(#EAEBF4, #CACACA);
+  background-size: cover ;
+  background-repeat: no-repeat;
+  max-width: 1600px;
+  height: 50;
+  font-family:  'Montserrat', sans-serif;
+}
+
+.resgatar-bonus button {
+  font-weight: 900;
+  color: #027027;
+  background-color: #FAB42F;
+  padding: 8px 16px ;
+  border-radius: 10px;
+}
+
+.boxes {
+  display: flex;
+  flex-flow: column wrap;
+  top: 25em;
+}
+.gratis{
+  color: #027027;
+  margin-bottom: 6px;
+}
+
+.resgatar-bonus{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: #002776;
+  text-align: center;
+  font-weight:bold;
+}
+.resgatar-bonus button {
+  font-weight: bold;
+  background-color: #FAB42F;
+}
+
+@media (max-width:420px) {
+  .resgatar-bonus{
+    max-width: 70%;
+    font-size: 1em;
+  }
+  .resgatar-bonus button {
+    font-size: 1em;
+    font-weight: 900;
+    background-color: #FAB42F;
+    padding: 0.6em 0.9em ;
+    border-radius: 12px;
+  }
+}
+
+
+@media (max-width:420px) {
+  .resgatar-bonus{
+    max-width: 70%;
+    font-size: 1.3em;
+  }
+  .resgatar-bonus button {
+    font-size: 1.4em;
+    font-weight: 900;
+    background-color: #FAB42F;
+    padding: 0.6em 0.9em ;
+    border-radius: 12px;
+  }
+}
+@media (max-width:520px) {
         body {
-            display: flex;
-            background-image: url('./asstes/imgs/cassanic.svg');
-            background-size: cover ;
-            background-repeat: no-repeat;
-            max-width: 440px;
-          };
-          header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-image: url('./asstes/imgs/slot-machine-mobile.svg'), linear-gradient(#EAEBF4, #CACACA);
+            padding: 0 1.5rem;
+          }
+          .resgatar-bonus{
+            max-width: 70%;
+            margin-top: 35vw;
+            margin-bottom: 25vw;
+            font-size: 1.2em;
+          }
+          .resgatar-bonus button {
+            font-size: 1em;
+            padding: 0.8em 1.2em ;
+            border-radius: 15px;
           }
 
 }
+
+
+
+
