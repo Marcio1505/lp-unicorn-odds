@@ -27,15 +27,17 @@ body {
   display: flex;
   justify-content: center;
   background-image: url('./asstes/imgs/slot-machine.svg'), linear-gradient(#EAEBF4, #CACACA);
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
-  max-width: 1600px;
   font-family: 'Montserrat', sans-serif;
 }
 
-#root {
-  width: 70%;
+
+.App{
+  max-width: 100%;
 }
+
+
 
 .resgatar-bonus button {
   font-weight: 900;
@@ -60,6 +62,7 @@ body {
   color: #002776;
   text-align: center;
   font-weight: bold;
+
 }
 
 .resgatar-bonus button {
@@ -68,13 +71,26 @@ body {
 }
 
 
+.boxes{
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  width: 100vw;
+}
 
+.boxes .MuiContainer-root{
+  max-width: 80%;
+}
+
+.PrivateSwitchBase-input{
+  color: #002776 !important;
+}
 
 /* inicio @mediaquery desktop  */
 @media (max-width:4500px) {
   .resgatar-bonus {
     margin-top: 19vw;
-    margin-left: 6vh;
+    margin-left: 8%;
     margin-bottom: 24vw;
     font-size: 2em;
   }
@@ -88,7 +104,6 @@ body {
 @media (max-width:1500px) {
   .resgatar-bonus {
     margin-top: 19vw;
-    margin-left: 5vh;
     margin-bottom: 24vw;
     font-size: 1.8em;
   }
@@ -103,7 +118,6 @@ body {
 @media (max-width:1100px) {
   .resgatar-bonus {
     margin-top: 19vw;
-    margin-left: 0vh;
     margin-bottom: 24vw;
     font-size: 1.6em;
   }
@@ -130,9 +144,6 @@ body {
     background-image: url('./asstes/imgs/slot-machine-mobile.svg'), linear-gradient(#EAEBF4, #CACACA);
   }
 
-  #root {
-    width: 80%;
-  }
 
   .resgatar-bonus {
     margin-top: 36vw;
@@ -163,7 +174,7 @@ body {
 
 @media (max-width:450px) {
   .resgatar-bonus {
-    margin-top: 32vw;
+    margin-top: 28vw;
     font-size: 1.1em;
   }
 }
@@ -176,3 +187,7 @@ body {
 }
 
 /* final @mediaquery mobile */
+
+.MuiSvgIcon-root{
+  color: #7E7A7A;
+}

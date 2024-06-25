@@ -2,11 +2,11 @@ import logo from "./asstes/imgs/logo.svg";
 import Winers from './components/Winers';
 import Faq from './components/Faq';
 import Form from './components/Form';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
@@ -27,7 +27,7 @@ function App() {
         <Winers />
         <Form />
       </div>
-      </div>
+      <Footer />
     </div>
   );
 }
