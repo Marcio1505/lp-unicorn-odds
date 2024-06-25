@@ -26,7 +26,7 @@ function Form() {
         borderRadius: "15px",
         bgcolor: "#2A2E4A",
         color: "#ffffff",
-        // maxWidth: "90%",
+
         padding: "1.5rem 1rem",
         margin: "3rem 3rem 3rem 3rem",
       }}
@@ -34,21 +34,25 @@ function Form() {
       <Box>
         <Box
           sx={{
-            display: "flex", 
-          }}>
+            display: "flex",
+          }}
+        >
           <Typography component="p">GARANTA JÁ </Typography>
-          <Typography component="p"
+          <Typography
+            component="p"
             sx={{
               fontWeight: "bold",
-              paddingLeft:"0.3rem",
-            }}>
-          $600 + 200 RODADAS</Typography>
+              paddingLeft: "0.3rem",
+            }}
+          >
+            $600 + 200 RODADAS
+          </Typography>
         </Box>
         <Typography
           sx={{
-            color: "#f6f6f6",
             padding: "1rem 0rem",
-          }}>
+          }}
+        >
           Reivindique grátis ativando seu e-mail ou telefone.
         </Typography>
       </Box>
@@ -58,7 +62,7 @@ function Form() {
             sx={{
               fontWeight: "bold",
               backgroundColor: "#F6F6F6",
-              borderRadius: "15px"
+              borderRadius: "15px",
             }}
             hiddenLabel
             id="filled-hidden-label-normal"
@@ -71,7 +75,7 @@ function Form() {
             sx={{
               fontWeight: "bold",
               backgroundColor: "#F6F6F6",
-              borderRadius: "15px"
+              borderRadius: "15px",
             }}
             hiddenLabel
             id="filled-hidden-label-normal"
@@ -84,18 +88,19 @@ function Form() {
             sx={{
               fontWeight: "bold",
               backgroundColor: "#F6F6F6",
-              borderRadius: "15px"
+              borderRadius: "15px",
             }}
             value={value}
             onChange={handleChange}
-            fullWidth />
+            fullWidth
+          />
         </Grid>
         <Grid item xs={12}>
           <TextField
             sx={{
               fontWeight: "bold",
               backgroundColor: "#F6F6F6",
-              borderRadius: "15px"
+              borderRadius: "15px",
             }}
             hiddenLabel
             id="filled-hidden-label-normal"
@@ -118,17 +123,7 @@ function Form() {
           />
         </Grid>
         <Grid item xs={12}>
-          <Button
-            variant="contained"
-            fullWidth
-            sx={{
-              borderRadius: "12px",
-              backgroundColor: "#FAB42F",
-              color: "#027027",
-              fontWeight: "bold",
-              paddingTop: "10px",
-            }}
-          >
+          <Button variant="contained" fullWidth>
             GARANTIR RODADAS GRATIS
           </Button>
         </Grid>
