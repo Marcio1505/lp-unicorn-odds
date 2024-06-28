@@ -15,6 +15,27 @@ const theme = createTheme({
     color: "#fff",
   },
   components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          
+          "& .MuiFormHelperText-root":{
+            color: "#fff"
+          },
+          "& .MuiOutlinedInput-root": {
+            fontWeight: "bold",
+            backgroundColor: "#F6F6F6",
+            borderRadius: "15px",
+            border: "none",
+            "& .Mui-error fieldset": {
+              borderRadius: "15px",
+              borderColor: "transparent", // Modifique aqui a cor da borda quando focado
+            },
+            
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

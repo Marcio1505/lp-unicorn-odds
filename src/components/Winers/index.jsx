@@ -1,107 +1,103 @@
 import * as React from "react";
-// import FormControl from "@mui/material/FormControl";
-// import OutlinedInput from "@mui/material/OutlinedInput";
-import { MuiTelInput } from "mui-tel-input";
 import {
   Box,
   Container,
-  TextField,
   Grid,
-  Button,
   Typography,
-  Checkbox,
-  FormControlLabel,
+  Avatar,
   Paper,
   useMediaQuery,
-  // FormGroup,
 } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
-import { ArrowForwardIos, ArrowBackIos } from "@mui/icons-material";
+import avatars from "../../asstes/imgs/winers"
+
 
 function Item(props) {
   return (
-    <Paper elevation={3} sx={{ padding: 2, margin: 2 }}>
-      <Typography variant="h5" component="h2">
-        {props.item.name}
+    <Paper elevation={3} sx={{
+       padding: 2, 
+       margin: 2,
+       color:"white" }}>
+      <Box >
+      <Typography 
+       sx={{
+        display:"flex",
+        alignItems: "center",
+        fontSize:"1.4rem",
+        fontWeight:"200",
+        paddingBottom:"0.8rem" }}
+      variant="p" 
+      component="h5">
+      <Avatar 
+      sx={{
+        marginRight:"1rem"
+      }}
+      alt="photo" 
+      src={props.item.photo}>
+      </Avatar>
+      {props.item.name}
       </Typography>
-      <Typography variant="body1" component="p" sx={{ marginBottom: 2 }}>
+      </Box>
+      <Typography variant="body1" component="p" >
         {props.item.description}
       </Typography>
-      <Button variant="contained" color="primary">
-        Check it out!
-      </Button>
     </Paper>
   );
 }
 function Winers() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-    ],
-  };
+  
   const items = [
     {
-      name: "Random Name #1",
-      description: "Probably the most random thing you have ever seen!",
+      photo: avatars[0],
+      name: "Marcos Silva - SP",
+      description: "5 MIL REAIS - Ganhei na Unicorn of Odds e realizei meu sonho de viajar pelo mundo!",
     },
     {
-      name: "Random Name #2",
-      description: "Hello World!",
+      photo: avatars[1],
+      name: "Antonio Walace - RJ",
+      description: "3 MIL REAIS - Ganhei pela primeira vez na Unicorn of Odds e estou naapostas nuvens! Nunca imaginei que poderia ser tão fácil e emocionante.",
     },
     {
-      name: "Random Name #3",
-      description: "This is a new item description.",
+      photo: avatars[2],
+      name: "Marina Ribeiro - SC",
+      description: "800 REAIS - Unicorn of Odds me trouxe sorte e um prêmio incrível!",
     },
     {
-      name: "Random Name #4",
-      description: "Another random description for the carrousel.",
+      photo: avatars[3],
+      name: "Igor Duarte - Al",
+      description: "4 MIL REAIS - A sorte sorriu para mim na Unicorn of Odds, que sensação maravilhosa! Recomendo a todos que tentem a sorte também.",
     },
     {
-      name: "Random Name #5",
-      description: "More content to see in the carrousel.",
+      photo: avatars[4],
+      name: "Johseph Milei - SP",
+      description: "900 REAIS - Meu palpite certeiro na Unicorn of Odds me rendeu uma bela quantia! Estou muito satisfeito com o site e suas ótimas oportunidades",
     },
     {
-      name: "Random Name #6",
-      description: "Yet another random item description.",
-    },
-    {
-      name: "Random Name #7",
-      description: "Let's add more content to the carrousel.",
-    },
-    {
-      name: "Random Name #8",
-      description: "This is the last random item description.",
+      photo: avatars[5],
+      name: "Maria Eduarda - RN",
+      description: "2 MIL REAIS - Recebi uma notificação da Unicorn of Odds e quase nao acreditei, com esse dinheiro vou pagar minhas contas",
     },
   ];
 
   const isLargeScreen = useMediaQuery("(min-width:800px)");
   return (
-    <Container sx={{ marginTop: 4 }}>
+    <Container 
+    sx={{
+      padding: "1.2rem 1rem",
+      backgroundColor:"#2A2E4A",
+
+    }}>
       <Carousel
         animation="slide"
-        NavButton={({ onClick, className, style, next, prev }) => {
-          // Other logic
+        activeIndicatorIconButtonProps={{
+          style: {
+              backgroundColor: "#FAB42F"
+          }
+      }}
+        sx={{ 
 
-          return (
-            <Button onClick={onClick} className={className} style={style}>
-              {next && <ArrowForwardIos />}
-              {prev && <ArrowBackIos />}
-            </Button>
-          );
-        }}
-        navButtonsAlwaysVisible
-        sx={{ "& .MuiButtonBase-root": { color: "primary.main" } }}
+          "& .MuiPaper-root": { maxHeight:"20rem", minHeight:"15rem" },
+          "& .MuiButtonBase-root": { color: "primary.main",marginTop:"1rem" } }}
       >
         {isLargeScreen
           ? items

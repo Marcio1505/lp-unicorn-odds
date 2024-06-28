@@ -1,7 +1,7 @@
-import * as React from "react";
-// import FormControl from "@mui/material/FormControl";
-// import OutlinedInput from "@mui/material/OutlinedInput";
-import { MuiTelInput } from "mui-tel-input";
+
+import React, { useEffect, useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { MuiTelInput, matchIsValidTel } from "mui-tel-input";
 import {
   Box,
   Container,
@@ -10,15 +10,54 @@ import {
   Button,
   Typography,
   Checkbox,
+  FormGroup,
   FormControlLabel,
-  // FormGroup,
+  FormHelperText,
+  FormControl,
 } from "@mui/material";
 
-function Form() {
-  const [value, setValue] = React.useState("");
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
+function Form() {
+  const { handleSubmit, control, formState: { errors } } = useForm();
+  const [country, setCountry] = useState("us");
+ 
+
+  useEffect(() => {
+    fetch("https://ipinfo.io/json?token=df26bb0f8ce15c", { headers: { "Accept": "application/json" } })
+      .then((resp) => resp.json())
+      .catch(() => ({ country: "us" }))
+      .then((resp) => {
+        setCountry(resp.country.toUpperCase());
+      });
+  }, []);
+
+  const onSubmit = async (formData) => {
+    
+    try {
+      const response = await fetch("https://hooks.zapier.com/hooks/catch/3217841/ff4wgw/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          url: window.location.href,
+          sid: "MS001",
+          cas: "Dunder",
+          date: new Date().toISOString(),
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      // Implementar qualquer lógica adicional após o envio bem-sucedido
+
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Implementar lógica de tratamento de erro, se necessário
+    }
   };
   return (
     <Container
@@ -26,7 +65,6 @@ function Form() {
         borderRadius: "15px",
         bgcolor: "#2A2E4A",
         color: "#ffffff",
-
         padding: "1.5rem 1rem",
         margin: "3rem 3rem 3rem 3rem",
       }}
@@ -56,78 +94,132 @@ function Form() {
           Reivindique grátis ativando seu e-mail ou telefone.
         </Typography>
       </Box>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <TextField
-            sx={{
-              fontWeight: "bold",
-              backgroundColor: "#F6F6F6",
-              borderRadius: "15px",
-            }}
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            placeholder="Fist name"
-            fullWidth
-          />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Controller
+              name="first_name"
+              control={control}
+              defaultValue=""
+              rules={{ required: "First name is required" }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  hiddenLabel
+                  placeholder="First name"
+                  fullWidth
+                  error={!!errors.first_name}
+                  helperText={errors.first_name ? errors.first_name.message : ""}
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Controller
+              name="last_name"
+              control={control}
+              defaultValue=""
+              rules={{ required: "Last name is required" }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  hiddenLabel
+                  placeholder="Last name"
+                  fullWidth
+                  error={!!errors.last_name}
+                  helperText={errors.last_name ? errors.last_name.message : ""}
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Controller
+              name="phone"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: "Phone number is required",
+                validate: matchIsValidTel
+              }}
+              render={({ field }) => (
+                <MuiTelInput
+                  {...field}
+                  defaultCountry={country}
+                  fullWidth
+                  error={!!errors.phone}
+                  helperText={errors.phone ? "Invalid phone number" : ""}
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Controller
+              name="email"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: "Email is required",
+                pattern: {
+                  value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                  message: "Invalid email address"
+                }
+              }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+            
+                  hiddenLabel
+                  placeholder="Email"
+                  fullWidth
+                  error={!!errors.email}
+                  helperText={errors.email ? errors.email.message : ""}
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Controller
+              name="terms"
+              control={control}
+              rules={{ required: "Para prosseguir confirme que tens 18 anos" }}
+              render={({ field }) => (
+                <FormControl
+                required
+                fullWidth
+                error={!!errors.terms}
+                component="fieldset"
+                sx={{ m: 3 }}
+                variant="standard"
+              > <FormGroup> <FormControlLabel
+                {...field} 
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row-reverse",
+                    justifyContent: "space-between",
+                    height:"5px",
+                    color: "#7E7A7A",
+                    fontWeight:"100",
+
+                  }}
+                  fullWidth
+                  control={<Checkbox />}
+                  label="Marque aqui se confirma que tens mais de 18 anos"
+                  
+                />
+                {!!errors.terms &&  <FormHelperText>You can display an error</FormHelperText>}
+               </FormGroup></FormControl>
+               
+               
+              )}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button type="submit" variant="contained" fullWidth >
+              GARANTIR RODADAS GRATIS
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            sx={{
-              fontWeight: "bold",
-              backgroundColor: "#F6F6F6",
-              borderRadius: "15px",
-            }}
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            placeholder="Last name"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <MuiTelInput
-            sx={{
-              fontWeight: "bold",
-              backgroundColor: "#F6F6F6",
-              borderRadius: "15px",
-            }}
-            value={value}
-            onChange={handleChange}
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            sx={{
-              fontWeight: "bold",
-              backgroundColor: "#F6F6F6",
-              borderRadius: "15px",
-            }}
-            hiddenLabel
-            id="filled-hidden-label-normal"
-            placeholder="Email"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <FormControlLabel
-            sx={{
-              display: "flex",
-              flexDirection: "row-reverse",
-              paddingLeft: "1rem",
-              justifyContent: "space-between",
-              color: "#7E7A7A",
-            }}
-            required
-            control={<Checkbox />}
-            label="Tenho mais de 18 anos e aceito os termos e condições do contrato na moeda escolhida"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Button variant="contained" fullWidth>
-            GARANTIR RODADAS GRATIS
-          </Button>
-        </Grid>
-      </Grid>
+      </form>
     </Container>
   );
 }

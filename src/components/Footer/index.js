@@ -6,12 +6,12 @@ import "./style.module.css"
 
 function Footer() {
     return (
-        <div className="Footer">        
         <footer>
+            <div>
             <img src={logoFooter} className="logo-footer" alt="logo-footer" />
             <img src={iconEigth} className="footer +18" alt="footer +18" />
+            </div>
         </footer>
-        </div>
     );
 }
 export default Footer;

@@ -10,11 +10,15 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "lint": "^0.8.19",
     "mui-tel-input": "^5.1.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.0",
+    "react-intl-tel-input": "^8.2.0",
     "react-material-ui-carousel": "^3.4.2",
     "react-scripts": "5.0.1",
+    "tss-react": "^4.9.10",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

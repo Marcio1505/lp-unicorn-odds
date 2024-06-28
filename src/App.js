@@ -6,26 +6,24 @@ import Footer from "./components/Footer";
 import theme from "./utils/theme";
 import { ThemeProvider } from "@mui/material/styles";
 import {
-  Box,
-  Container,
-  TextField,
-  Grid,
   Button,
-  Typography,
-  Checkbox,
-  FormControlLabel,
   Paper,
-  // FormGroup,
 } from "@mui/material";
+import React, { useRef } from "react";
 
 function App() {
+  const anchorRef = useRef(null);
+
+  const handleButtonClick = () => {
+    anchorRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-        {/* <div className="slot-machine"><img src={slotMachine} className="slot-machine" alt="slot-machine" /></div> */}
         <div className="resgatar-bonus">
           <div>
             <h3>
@@ -34,7 +32,9 @@ function App() {
               BONUS + 200 GIROS
             </h3>
             <h3 className="gratis">GRATIS !</h3>
-            <button className="resgatar-bonus-btn">RESGATAR BONUS</button>
+            <Button onClick={handleButtonClick} variant="contained" color="primary">
+              RESGATAR BONUS
+            </Button>
           </div>
         </div>
         <div className="boxes">
@@ -47,6 +47,7 @@ function App() {
             <Winers />
           </Paper>
           <Form />
+          <div ref={anchorRef}></div>
         </div>
         <Footer />
       </div>

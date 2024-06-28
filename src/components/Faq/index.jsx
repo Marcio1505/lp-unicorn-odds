@@ -7,19 +7,24 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const faqData = [
   {
-    question: "O que é o Material-UI?",
+    question: "Como  resgatar meu dinheiro? ",
     answer:
-      "Material-UI é uma biblioteca de componentes de interface de usuário para React baseada no design system do Google Material Design.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non ligula vitae lectus laoreet consequat eget in mauris. Proin vestibulum magna eleifend erat pulvinar, et gravida turpis volutpat. Aliquam est.",
   },
   {
-    question: "Como eu instalo o Material-UI?",
+    question: "Como funciona a UnicornOfOdds ",
     answer:
-      "Você pode instalar o Material-UI usando npm ou yarn. Com npm, use o comando `npm install @mui/material @emotion/react @emotion/styled`.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non ligula vitae lectus laoreet consequat eget in mauris. Proin vestibulum magna eleifend erat pulvinar, et gravida turpis volutpat. Aliquam est.",
   },
   {
-    question: "O Material-UI é gratuito?",
+    question: "Porque escolher a UnicornOfOdds?  ",
     answer:
-      "Sim, o Material-UI é uma biblioteca open-source e gratuita para uso. No entanto, eles oferecem uma versão paga com componentes adicionais e suporte.",
+      "Quando se trata de colocar as mãos no seu dinheiro o mais rápido possível, eles são um dos cassinos online mais rápidos do mercado. Tendo pago milhões aos jogadores ao longo dos anos com múltiplas opções de saque, será difícil encontrar outro cassino online com um pagamento mais rápido.",
+  },
+  {
+    question: "Quem pode jogar na UnicornOfOdds  ",
+    answer:
+      "Qualquer pessoa com mais de 18 anos pode jogar",
   },
 ];
 
@@ -34,7 +39,13 @@ function Faq() {
         margin: "3rem 3rem 3rem 3rem",
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography
+        variant="h5"
+        gutterBottom
+        sx={{
+          fontSize: "1.4em",
+        }}
+      >
         Perguntas Frequentes
       </Typography>
       {faqData.map((item, index) => (
@@ -43,17 +54,29 @@ function Faq() {
           sx={{
             bgcolor: "#2A2E4A",
             color: "#ffffff",
+            fontWeight: "100",
+            fontSize: "0.8em",
           }}
         >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`panel${index}-content`}
             id={`panel${index}-header`}
+            sx={{
+              borderTop: "1px solid #484D6C",
+            }}
           >
             <Typography>{item.question}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{item.answer}</Typography>
+            <Typography
+              sx={{
+                fontWeight: "200",
+                fontSize: "1.2em",
+              }}
+            >
+              {item.answer}
+            </Typography>
           </AccordionDetails>
         </Accordion>
       ))}
