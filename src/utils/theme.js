@@ -12,19 +12,20 @@ const theme = createTheme({
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     fontSize: 16,
-    color: "#fff",
+    color: "#ffffff",
   },
   components: {
     MuiTextField: {
       styleOverrides: {
         root: {
-          
+
           "& .MuiFormHelperText-root":{
             color: "#fff"
           },
           "& .MuiOutlinedInput-root": {
             fontWeight: "bold",
             backgroundColor: "#F6F6F6",
+
             borderRadius: "15px",
             border: "none",
             "& .Mui-error fieldset": {
@@ -36,6 +37,7 @@ const theme = createTheme({
         },
       },
     },
+    
     MuiButton: {
       styleOverrides: {
         root: {
