@@ -44,6 +44,9 @@ function Faq() {
         gutterBottom
         sx={{
           fontSize: "1.4em",
+          '@media (max-width:430px)': {
+            fontSize:  "1.2em",
+          },
         }}
       >
         Perguntas Frequentes

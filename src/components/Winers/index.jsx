@@ -85,7 +85,7 @@ function Winers() {
     sx={{
       padding: "1.2rem 1rem",
       backgroundColor:"#2A2E4A",
-
+      
     }}>
       <Carousel
         animation="slide"

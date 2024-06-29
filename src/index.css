@@ -198,6 +198,8 @@ html {
 
 @media (max-width:410px) {
   .resgatar-bonus {
+    margin-left: 1rem;
+    margin-top: 26vw;
     font-size: 1em;
   }
 

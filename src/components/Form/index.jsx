@@ -126,13 +126,23 @@ function Form() {
             display: "flex",
           }}
         >
-          <Typography component="p">GARANTA JÁ </Typography>
+          <Typography 
+          sx={{
+            '@media (max-width:430px)': {
+              fontSize:  "0.9rem",
+            },
+          }}
+          component="p">GARANTA JÁ </Typography>
           <Typography
             component="p"
             sx={{
               fontWeight: "bold",
               paddingLeft: "0.3rem",
+              '@media (max-width:430px)': {
+                fontSize:  "0.9rem",
+              },
             }}
+              
           >
             $600 + 200 RODADAS
           </Typography>
@@ -140,6 +150,9 @@ function Form() {
         <Typography
           sx={{
             padding: "1rem 0rem",
+            '@media (max-width:430px)': {
+              fontSize:  "0.9rem",
+            },
           }}
         >
           Reivindique grátis ativando seu e-mail ou telefone.
@@ -233,7 +246,7 @@ function Form() {
             <Controller
               name="terms"
               control={control}
-              rules={{ required: "Para prosseguir confirme que tens 18 anos" }}
+              rules={{ required: "Para prosseguir confirme que tem 18 anos" }}
               render={({ field }) => (
                 <FormControl
                   required
@@ -255,10 +268,11 @@ function Form() {
                         height: "5px",
                         color: "#7E7A7A",
                         fontWeight: "100",
+                        
                       }}
                       fullWidth
                       control={<Checkbox />}
-                      label="Marque aqui se confirma que tens mais de 18 anos"
+                      label="Marque aqui se tem mais de 18 anos"
                     />
                   </FormGroup>{" "}
                   {!!errors.terms && (
@@ -267,16 +281,20 @@ function Form() {
                         marginLeft: "-10px",
                         marginTop: "22px",
                       }}
-                      md={{ marginTop: "0px" }}
+                      md={{ marginTop: "0px",
+                       }}
                     >
-                      You can display an error
+                      Deve confirmar que tem mais de 18 anos  
                     </FormHelperText>
                   )}
                 </FormControl>
               )}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12}
+                                sx={{
+                                  marginTop: "-20px",
+                                }}>
             <Button type="submit" letiant="contained" fullWidth>
               GARANTIR RODADAS GRATIS
             </Button>
@@ -356,7 +374,7 @@ function CircularWithValueLabel() {
       setProgress((prevProgress) =>
         prevProgress >= 100 ? 0 : prevProgress + 10
       );
-    }, 320);
+    }, 350);
     return () => {
       clearInterval(timer);
     };
